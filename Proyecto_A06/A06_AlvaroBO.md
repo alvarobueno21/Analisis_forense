@@ -1,0 +1,49 @@
+# Trabajo Forense P6
+
+# Indice
+
+# Introducción
+
+Para hacer el siguiente trabajo nos fijaremos en la norma APINAG4 que hicimos en la anterior practica y veremos el orden de volatilidad a la hora de recolectar evidencias, a partir de ahí sabemos que el orden será empezar con RAM Capture para que nos saque de manera segura el contenido completo de la memoria volátil, luego usaremos el programa WinTriage que nos sacará el DFIR que es una especie de respuesta anti-incidenttes de seguridad informática y nos ayudará a analizar la actividad del usuario en esa máquina y si ha sido maliciosa, por último usaremos el programa FTK Imager para realizar una imagen completa del disco de la máquina virtual.
+
+## Magnet RAM Capture:
+
+Para utilizar el siguiente programa lo primero que haremos será abrirlo y en browse pondremos la ruta donde queremos crear la captura de la RAM, le damos a start y se tomará un poco de tiempo.
+
+![Untitled](Trabajo%20Forense%20P6%20e6e49568b21d46cdb0aac9aa2dacf6d7/Untitled.png)
+
+Y una vez terminado nos dirá que todo está correcto y que ha creado el archivo Ram_registros.raw
+
+![Untitled](Trabajo%20Forense%20P6%20e6e49568b21d46cdb0aac9aa2dacf6d7/Untitled%201.png)
+
+## Win Triage
+
+A continuación, usaremos WinTriage que es un programa el cual le puedes pasar varios programas y herramientas como ejecutables, y te las ejecutará y hará un informe de todo lo que ha conseguido capturar en vivo, para que funcione simplemente metemos las herramientas o ejecutables que queramos en su carpeta de Tools, en el zip de la instalación hay un bloc de notas con varios enlaces a descargas de programas, nos descargamos algunos y se quedaría así la carpeta de herramientas:
+
+![Untitled](Trabajo%20Forense%20P6%20e6e49568b21d46cdb0aac9aa2dacf6d7/Untitled%202.png)
+
+Y ahora ejecutamos el programa y ya nos dará el informe correctamente:
+
+![Untitled](Trabajo%20Forense%20P6%20e6e49568b21d46cdb0aac9aa2dacf6d7/Untitled%203.png)
+
+Y ahora nos vamos a la carpeta donde le hemos dicho que nos cree el informe y veremos que nos saca varias carpetas con varias evidencias e informes y ya estaría terminado.
+
+![Untitled](Trabajo%20Forense%20P6%20e6e49568b21d46cdb0aac9aa2dacf6d7/Untitled%204.png)
+
+FTK Imager
+
+Aquí seleccionamos en dispositivo de origen seleccionaremos disco físico que será el de nuestra máquina virtual:
+
+![Untitled](Trabajo%20Forense%20P6%20e6e49568b21d46cdb0aac9aa2dacf6d7/Untitled%205.png)
+
+Y ahora aquí seleccionamos donde guardaremos la imagen del disco que nos sacará el FTK Imager, en este caso seleccionamos E:\ que es el pendrive que hemos introducido a la máquina virtual. En la parte de abajo donde pone 1500 podemos fragmentar las partes de la imagen que nos sacará el programa, podemos poner el tamaño que queramos y también un rango del 1 al 9 para establecer si queremos una compresión más rápida o más pequeña.
+
+![Untitled](Trabajo%20Forense%20P6%20e6e49568b21d46cdb0aac9aa2dacf6d7/Untitled%206.png)
+
+Y aquí esperamos a que termine el proceso de creación de la imagen del disco duro y ya habremos finalizado la imagen del disco duro
+
+![Untitled](Trabajo%20Forense%20P6%20e6e49568b21d46cdb0aac9aa2dacf6d7/Untitled%207.png)
+
+Y para finalizar nos daría un resumen de los hashes en este caso MD5 y SHA1 y también los sectores del disco que han fallado o estaban mal a la hora de sacar la información:
+
+![Untitled](Trabajo%20Forense%20P6%20e6e49568b21d46cdb0aac9aa2dacf6d7/Untitled%208.png)
