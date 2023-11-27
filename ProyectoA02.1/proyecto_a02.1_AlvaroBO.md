@@ -25,13 +25,14 @@ Luego usaré una máquina Virtual de Windows 10 con el programa VMWare Workstati
 1. **Describe, como mínimo, la información siguiente, relacionada con el sistema operativo instalado en el sistema informático que estás analizando:**
    1. **¿Qué tamaño tiene la partición a analizar?**
 
-Para ver el tamaño de la partición nos iremos al autopsy y cargaremos la imagen del disco y en la parte derecha podremos ver el nombre del disco y el tamaño en bytes del disco que son 2623832064 bytes que es igual a **2.446 Gb.![](Aspose.Words.d083e4b3-ee46-45cd-95ce-a912a3c49135.001.png)**
+Para ver el tamaño de la partición nos iremos al autopsy y cargaremos la imagen del disco y en la parte derecha podremos ver el nombre del disco y el tamaño en bytes del disco que son 2623832064 bytes que es igual a **2.446 Gb.**
+![img/1.png](https://github.com/alvarobueno21/Analisis_forense/blob/138d56dbc0fb0aa1e5736aebff000700d00454a6/ProyectoA02.1/img/1.png)
 
 **Herramientas utilizadas:** Autopsy: Versión 4.21.0
 
 1. Sistema y versión del sistema operativo instalado.
 
-![](Aspose.Words.d083e4b3-ee46-45cd-95ce-a912a3c49135.002.png)
+![img/2.png](https://github.com/alvarobueno21/Analisis_forense/blob/138d56dbc0fb0aa1e5736aebff000700d00454a6/ProyectoA02.1/img/2.png)
 
 **Herramientas utilizadas:** Autopsy: Versión 4.21.0
 
@@ -43,13 +44,13 @@ Si nos vamos a la carpeta Software à Windows à Windows NT à curent version à
 
 **Herramientas utilizadas:** Autopsy: Versión 4.21.0 y WRR: Versión 4.21.0
 
-![](Aspose.Words.d083e4b3-ee46-45cd-95ce-a912a3c49135.003.png)
+![img/3.png](https://github.com/alvarobueno21/Analisis_forense/blob/138d56dbc0fb0aa1e5736aebff000700d00454a6/ProyectoA02.1/img/3.png)
 
 1. “Product ID” asociado al sistema.
 
 Si nos vamos a Software, a la carpeta Microsoft, WindowsNT y dentro de la carpeta Current Version buscamos ProductId
 
-![](Aspose.Words.d083e4b3-ee46-45cd-95ce-a912a3c49135.004.png)
+![img/4.png](https://github.com/alvarobueno21/Analisis_forense/blob/138d56dbc0fb0aa1e5736aebff000700d00454a6/ProyectoA02.1/img/4.png)
 
 Y este sería el Product ID: 76487-341-1072684-22504
 
@@ -59,7 +60,7 @@ Y este sería el Product ID: 76487-341-1072684-22504
 
 Para encontrar el Service Pack nos iremos a la carpeta Microsoft, WindowsNT y dentro de la carpeta Current Version y buscamos CSDVersion
 
-![](Aspose.Words.d083e4b3-ee46-45cd-95ce-a912a3c49135.005.png)
+![img/5.png](https://github.com/alvarobueno21/Analisis_forense/blob/138d56dbc0fb0aa1e5736aebff000700d00454a6/ProyectoA02.1/img/5.png)
 
 **Herramientas utilizadas:** Autopsy: Versión 4.21.0 y WRR: Versión 4.21.0
 
@@ -67,11 +68,11 @@ Para encontrar el Service Pack nos iremos a la carpeta Microsoft, WindowsNT y de
 
 Para ver la fecha y hora de la instalación del sistema operativo nos iremos a la misma ruta que antes, es decir Software/Microsoft/WindowsNT/Current Version/Install Date
 
-![](Aspose.Words.d083e4b3-ee46-45cd-95ce-a912a3c49135.006.png)
+![img/6.png](https://github.com/alvarobueno21/Analisis_forense/blob/138d56dbc0fb0aa1e5736aebff000700d00454a6/ProyectoA02.1/img/6.png)
 
 Este dato nos lo da en hexadecimal y ahora con el programa dcode u otro programa web como puede ser EpochConverter pasaremos el hexadecimal a la fecha original, y nos da la fecha que sería 18 de abril de 2013 a las 15:17:02
 
-![](Aspose.Words.d083e4b3-ee46-45cd-95ce-a912a3c49135.007.png)
+![img/7.png](https://github.com/alvarobueno21/Analisis_forense/blob/138d56dbc0fb0aa1e5736aebff000700d00454a6/ProyectoA02.1/img/7.png)
 
 **Herramientas utilizadas:** Autopsy: Versión 4.21.0 y WRR: Versión 4.21.0
 
@@ -79,10 +80,9 @@ Este dato nos lo da en hexadecimal y ahora con el programa dcode u otro programa
 
 Esta en el fichero system à ControlSet001 à Control à Windows à Shutdown time, y aquí nos daría la fecha en binario pero si nos fijamos bien en el apartado de datetime en WIN 64 nos da la fecha correctamente y es la siguiente: 19/06/2013 
 
-![](Aspose.Words.d083e4b3-ee46-45cd-95ce-a912a3c49135.008.png)
+![img/8.png](https://github.com/alvarobueno21/Analisis_forense/blob/138d56dbc0fb0aa1e5736aebff000700d00454a6/ProyectoA02.1/img/8.png)
 
 **Herramientas utilizadas:** Autopsy: Versión 4.21.0 y WRR: Versión 4.21.0
-
 
 
 1. Determina qué usuarios hay definidos en el sistema (sin contar con los usuarios definidos por defecto). Para cada uno de ellos encuentra, como mínimo, la información siguiente:
@@ -90,15 +90,15 @@ Esta en el fichero system à ControlSet001 à Control à Windows à Shutdown tim
 
 Para ver esta información nos vamos a SAM à SAM à John à Last logon
 
-![](Aspose.Words.d083e4b3-ee46-45cd-95ce-a912a3c49135.009.png)
+![img/9.png](https://github.com/alvarobueno21/Analisis_forense/blob/138d56dbc0fb0aa1e5736aebff000700d00454a6/ProyectoA02.1/img/9.png)
 
 Para ver esta información nos vamos a SAM à SAM à Ian à Last logon
 
-![](Aspose.Words.d083e4b3-ee46-45cd-95ce-a912a3c49135.010.png)
+![img/10.png](https://github.com/alvarobueno21/Analisis_forense/blob/138d56dbc0fb0aa1e5736aebff000700d00454a6/ProyectoA02.1/img/10.png)
 
 Para ver esta información nos vamos a SAM à Jessy à Jessy à Last logon
 
-![](Aspose.Words.d083e4b3-ee46-45cd-95ce-a912a3c49135.011.png)
+![img/11.png](https://github.com/alvarobueno21/Analisis_forense/blob/138d56dbc0fb0aa1e5736aebff000700d00454a6/ProyectoA02.1/img/11.png)
 
 
 
@@ -108,20 +108,19 @@ Para ver esta información nos vamos a SAM à SAM à John à Last password set y
 
 nos saldrá la última vez que se modificó la contraseña
 
-![](Aspose.Words.d083e4b3-ee46-45cd-95ce-a912a3c49135.012.png)
+![img/12.png](https://github.com/alvarobueno21/Analisis_forense/blob/138d56dbc0fb0aa1e5736aebff000700d00454a6/ProyectoA02.1/img/12.png)
 
 Para ver esta información nos vamos a SAM à SAM à Ian à Last password set y 
 
 nos saldrá la última vez que se modificó la contraseña
 
-![](Aspose.Words.d083e4b3-ee46-45cd-95ce-a912a3c49135.013.png)
+![img/13.png](https://github.com/alvarobueno21/Analisis_forense/blob/138d56dbc0fb0aa1e5736aebff000700d00454a6/ProyectoA02.1/img/13.png)
 
 Para ver esta información nos vamos a SAM à SAM à Jessy à Last password set y 
 
 nos saldrá la ultima vez que se modificó la contraseña
 
-![](Aspose.Words.d083e4b3-ee46-45cd-95ce-a912a3c49135.014.png)
-
+![img/14.png](https://github.com/alvarobueno21/Analisis_forense/blob/138d56dbc0fb0aa1e5736aebff000700d00454a6/ProyectoA02.1/img/14.png)
 
 
 1. ¿Existe alguna contradicción entre las fechas halladas en éste apartado y el anterior? En caso afirmativo, ¿a qué crees que puede ser debido?
