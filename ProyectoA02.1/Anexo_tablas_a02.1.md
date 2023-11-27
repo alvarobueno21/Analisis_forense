@@ -1,9 +1,10 @@
-| Izquierda1 | Derecha |
+| Presentacuón de hallazgos | Contenido del fichero |
 |------------|---------|
-| Valor1-1   | |
-| Valor2-1   | |
-| Valor3-1   | |
-| Valor4-1   | Valor4-3|
-| Valor5-1   | Valor5-3|
+| Imagen  | <img src="https://github.com/alvarobueno21/Analisis_forense/blob/d4db68df00e9e8233217f72619b0c2c3f13cfad4/ProyectoA02.1/img/4.png"> |
+| Ruta completa    |  |
+| MAC Time    |  |
+| Tamaño lógico del fichero   |  |
+| Hash del fichero    |  |
 
-<img src="https://github.com/alvarobueno21/Analisis_forense/blob/0d4dc7bc7dff975b941859184e3c286d06a8413b/ProyectoA02.1/img/1.png" alt="Descripción de la imagen" align="right">
+Foto 2 encontrada
+
