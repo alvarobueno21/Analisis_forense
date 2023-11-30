@@ -104,15 +104,11 @@ Para ver esta información nos vamos a SAM à Jessy à Jessy à Last logon
 
 1. Fecha y hora del último cambio de contraseña.
 
-Para ver esta información nos vamos a SAM à SAM à John à Last password set y 
-
-nos saldrá la última vez que se modificó la contraseña
+Para ver esta información nos vamos a SAM luego a John y a Last password set y nos saldrá la última vez que se modificó la contraseña
 
 ![img/12.png](https://github.com/alvarobueno21/Analisis_forense/blob/138d56dbc0fb0aa1e5736aebff000700d00454a6/ProyectoA02.1/img/12.png)
 
-Para ver esta información nos vamos a SAM à SAM à Ian à Last password set y 
-
-nos saldrá la última vez que se modificó la contraseña
+Para ver esta información nos vamos a SAM luego a Ian después Last password set y nos saldrá la última vez que se modificó la contraseña
 
 ![img/13.png](https://github.com/alvarobueno21/Analisis_forense/blob/138d56dbc0fb0aa1e5736aebff000700d00454a6/ProyectoA02.1/img/13.png)
 
@@ -127,25 +123,73 @@ nos saldrá la ultima vez que se modificó la contraseña
 
 Si nos fijamos bien en la fecha de instalación del sistema operativo vemos que es el 18 de abril de 2013 a las 15:17:02 y si nos vamos al usuario john y vemos el último inicio de sesión es el 18 de marzo a las 3:10:49, es decir el usuario inicio sesión un mes antes de que el sistema operativo estuviera instalado lo cual es imposible, por lo tanto, deducimos que el delincuente ha podido falsificar dicho registro. 
 
-1. Localiza, extrae y relaciona los siguientes hallazgos, asociándose, si es posible, al usuario al cual pertenecen:
+4. Localiza, extrae y relaciona los siguientes hallazgos, asociándose, si es posible, al usuario al cual pertenecen:
    1. Localización y extracción de archivos eliminados.
-   1. Documentos y archivos fotográficos relacionados con presuntas conductas delictivas.
+Si queremos ver a que usuario pertenece cada uno de los ficheros podemos parsear el fichero SAM con regripper y así veremos que estos son sus identificadores:
+Administrador {500}
+Invitado {501}
+John {1003}
+Ian {1004}
+Jessy {1005}
+
+Si nos vamos al apartado de Deleted Files en autopsy podemos ver que en total tenemos 582 archivos, de los cuales tenemos 85 archivos que son imágenes que podemos visualizar y si vemos las imágenes podemos observar que hay 38 imágenes que están relacionadas con el caso que estamos investigando, de esas 38 solo hay 19 imágenes únicas donde aparecen fotografías como mercancía de droga, pastillas, fabricando coca, rayas de coca, almacenes y alijos de droga.
+Anotación: También podemos observar que en la carpeta CarvedFiles y OrphanFiles están las mismas imágenes que encontramos en el apartado Deleted Files pero tienen otros nombres de archivo.
+
+
+1. Documentos y archivos fotográficos relacionados con presuntas conductas delictivas.
+En el apartado de Recycler, podemos ver una imagen que nos da alguna pista de un local o almacen donde podría encontrarse algun alijo de droga, el usuario de esta imagen corresponde al identificador 1003, es decir es del usuario John.
+Si nos vamos a la carpeta de Desktop podemos ver varios documentos entre ellos un documento llamado manufacturing amfetas.link en el que encontramos una guía para fabricar metanfetamina en casa, también nos encontramos otro documento manufacturing.link que contiene los usos de varias pastillas, explicación y sintesis del éxtasis... , seguimos investigando y nos encontramos otro documento llamado provider.ico donde hay varios números de telefono de contactos y los horarios a los que se les puede contactar, con la dirección del punto de encuentro, etc. Por ultimo nos encontramos un documento pdf llamado coca.pdf que tiene informaciñon sobre las plantas de coca en colombia e información importante sobre tipos de plantas, etc.
+
+En el usuario John en la carpeta de History.IE5 podemos ver un fichero index.dat donde se encuentran los enlaces a los que el usuario John ha tenido acceso, por ejemplo vemos que en youtube ha buscado como hacer cocaina, también ha buscado en bing pena delito trafico de drogas.
+
+En el usuario John si nos metemos en la carpeta de Mataro store podemos encontrar varias imágenes y planos que quizas sea uno de los almacenes de Mataro. También nos iremos a la carpeta de My Pictures y podemos ver varias imagenes que se duplicaban con las que teniamos anteriormente pero hay una que es importante y no esta duplicada y se llama proceso final donde explica el proceso a seguir para hacer ciertas drogas.
+
+
+
+1 carpeta recycler  --
+
+
+
    1. ¿Los ficheros fotográficos contienen algún tipo de metadatos? En caso afirmativo, ¿qué información te permiten obtener?
+
+     si veo algunas fotos hechas con el movil me las descargo y les saco los metadatos con el kali, con exiftool .jpg
+
    1. Hojas de cálculo.
+   En la ruta del escritorio podemos ver un documento xls que se llama Contactes y que traducido del catalán al español significa Contactos y tiene alguna información que nos puede ser de utilidad. También encontré en el usuario John un fichero contrasenyas.xls que estaba en la carpeta de Mis documentos y que esta cifrado con contraseña y luego explicaremos el proceso de como lo pudimos descifrar.
+   
    1. Ficheros comprimidos.
+   He podido encontrar un fichero en el usuario John, en su carpeta SendTo llamado Compressed (zipped) Folder.ZFSendToTarget.
+   
    1. ¿Has localizado algún fichero con contraseña? ¿Has podido acceder a su contenido?
+   He podido localizar un documento llamado contrasenyas.xls que estaba ubicado dentro del usuario John en la carpeta de Mis documentos, para poder ver descifrar la contraseña usaremos el programa Excel Password Recovery Lastic y una vez dentro podemos ver el contenido del fichero donde tenemos información de un cliente llamado María, su numero de telefono y la fecha en que hizo varias ventas de 1 gr de coca que se cobró a 60 euros.
+
    1. Estudio de la navegación a través de internet: históricos de internet, URLs favoritas, búsquedas, etc.
+   Si nos vamos al usuario John y nos metemos en la carpeta de Cookies podemos ver algunas de las cookies en algunos sitios web como pueden ser ebay, fotomotor, terrasa.cat (si recordamos algunas de las imágenes encontradas en Deleted Files tenian de nombre Almacen Terrasa por lo que tiene relación con este caso)
+
+
+
+
+
+
+
+
 
 4\.2 Localiza, extrae y relaciona los siguientes hallazgos, asociándose, si es posible, al usuario al cual pertenecen: (De la segunda evidencia que encontremos)
 
 1. Localización y extracción de archivos eliminados.
+
 1. Documentos y archivos fotográficos relacionados con presuntas conductas delictivas.
+En el apartado de Recycled podemos ver un documento sospechoso donde en su interior nos encontramos material y palabras relacionadas con contenido pornográfico por lo que deducimos que pertenece a este otro caso, si vemos el identificador de usuario coincide con el usuario Ian.  doc1 - recycler - s-1-5-21- segunda carpeta
+
 1. ¿Los ficheros fotográficos contienen algún tipo de metadatos? En caso afirmativo, ¿qué información te permiten obtener?
 1. Hojas de cálculo.
 1. Ficheros comprimidos.
 1. ¿Has localizado algún fichero con contraseña? ¿Has podido acceder a su contenido?
 1. Estudio de la navegación a través de internet: históricos de internet, URLs favoritas, búsquedas, etc.
 1. ¿Has podido localizar alguna otra evidencia relacionada con algún otro tipo delictivo? En caso afirmativo, describe y extrae los hallazgos localizados, y determina y lleva a cabo aquellas acciones que realizarías en calidad de perito (puedes utilizar, como guión, los apartados de la pregunta 4).
+
+
+
 
 Anexo a parte: Hacer en un documento a parte la estructuración de las tablas
 
